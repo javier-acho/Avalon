@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88E3A622-ED20-40F1-91FA-158518364BE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Avalon.AccesoDatos</RootNamespace>
+    <AssemblyName>Avalon.AccesoDatos</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="banco.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="centroCostos.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clase.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClaseAbstracta\EF_Common.cs" />
+    <Compile Include="condicionPago.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="familia.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InterfazGenerica\IGenericRepository.cs" />
+    <Compile Include="menu.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="menuXperfil.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloAvalon.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloAvalon.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloAvalon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloAvalon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloAvalon.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="modulo.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="perfil.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="producto.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\Maestro\bancoRepository.cs" />
+    <Compile Include="Repositorio\Maestro\centroCostosRepository.cs" />
+    <Compile Include="Repositorio\Maestro\claseRepository.cs" />
+    <Compile Include="Repositorio\Maestro\familiaRepository.cs" />
+    <Compile Include="Repositorio\Maestro\productoRepository.cs" />
+    <Compile Include="Repositorio\Maestro\servicioRepository.cs" />
+    <Compile Include="Repositorio\Maestro\socioNegocioRepository.cs" />
+    <Compile Include="Repositorio\Maestro\subCentroCostosRepository.cs" />
+    <Compile Include="Repositorio\Maestro\subClaseRepository.cs" />
+    <Compile Include="Repositorio\Maestro\subFamiliaRepository.cs" />
+    <Compile Include="Repositorio\Maestro\subSubCentroCostosRepository.cs" />
+    <Compile Include="Repositorio\Maestro\subSubClaseRepository.cs" />
+    <Compile Include="Repositorio\menuRepository.cs" />
+    <Compile Include="Repositorio\usuarioRepository.cs" />
+    <Compile Include="servicio.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="socioNegocio.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subCentroCostos.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subClase.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subFamilia.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subSubCentroCostos.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subSubClase.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tipoDocumentoIdentidad.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuario.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuarioXperfil.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ModeloAvalon.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloAvalon.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloAvalon.edmx.diagram">
+      <DependentUpon>ModeloAvalon.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModeloAvalon.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloAvalon.edmx</DependentUpon>
+      <LastGenOutput>ModeloAvalon.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloAvalon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloAvalon.edmx</DependentUpon>
+      <LastGenOutput>ModeloAvalon.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

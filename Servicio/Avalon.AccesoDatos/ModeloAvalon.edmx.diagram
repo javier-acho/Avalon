@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d5df9d6f2e74ca689b4b27781cf3951" Name="Diagram1">
+        <EntityTypeShape EntityType="AvalonDBModel.menuXperfil" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AvalonDBModel.modulo" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AvalonDBModel.perfil" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AvalonDBModel.usuarioXperfil" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="AvalonDBModel.FK_menuXperfil_perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="AvalonDBModel.FK_usuarioXperfil_perfil" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AvalonDBModel.usuario" Width="1.5" PointX="3.375" PointY="4" />
+        <AssociationConnector Association="AvalonDBModel.FK_usuarioXperfil_usuario" />
+        <EntityTypeShape EntityType="AvalonDBModel.menu" Width="1.5" PointX="1" PointY="0.75" />
+        <AssociationConnector Association="AvalonDBModel.FK_menuXperfil_menu" />
+        <AssociationConnector Association="AvalonDBModel.FK_modulo_menu" />
+        <EntityTypeShape EntityType="AvalonDBModel.condicionPago" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="AvalonDBModel.tipoDocumentoIdentidad" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="AvalonDBModel.banco" Width="1.5" PointX="10.375" PointY="8.75" />
+        <EntityTypeShape EntityType="AvalonDBModel.centroCostos" Width="1.5" PointX="9.375" PointY="1.125" />
+        <EntityTypeShape EntityType="AvalonDBModel.clase" Width="1.5" PointX="3.375" PointY="8.125" />
+        <EntityTypeShape EntityType="AvalonDBModel.familia" Width="1.5" PointX="10.375" PointY="5" />
+        <EntityTypeShape EntityType="AvalonDBModel.producto" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="AvalonDBModel.servicio" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="AvalonDBModel.socioNegocio" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="AvalonDBModel.subCentroCostos" Width="1.5" PointX="11.625" PointY="1" />
+        <EntityTypeShape EntityType="AvalonDBModel.subClase" Width="1.5" PointX="5.625" PointY="8" />
+        <EntityTypeShape EntityType="AvalonDBModel.subFamilia" Width="1.5" PointX="12.625" PointY="4.875" />
+        <EntityTypeShape EntityType="AvalonDBModel.subSubCentroCostos" Width="1.5" PointX="13.875" PointY="1" />
+        <EntityTypeShape EntityType="AvalonDBModel.subSubClase" Width="1.5" PointX="7.875" PointY="8" />
+        <AssociationConnector Association="AvalonDBModel.FK_subCentroCostos_centroCostos" />
+        <AssociationConnector Association="AvalonDBModel.FK_subClase_clase" />
+        <AssociationConnector Association="AvalonDBModel.FK_proveedor_condicionPago" />
+        <AssociationConnector Association="AvalonDBModel.FK_subFamilia_familia" />
+        <AssociationConnector Association="AvalonDBModel.FK_proveedor_tipoDocumentoIdentidad" />
+        <AssociationConnector Association="AvalonDBModel.FK_subSubCentroCostos_subCentroCostos" />
+        <AssociationConnector Association="AvalonDBModel.FK_subSubClase_subClase" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

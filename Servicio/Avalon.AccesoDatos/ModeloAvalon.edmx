@@ -1,0 +1,1228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AvalonDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="banco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="10" />
+          <Property Name="codigo" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="centroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="condicionPago">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="dias" Type="int" />
+        </EntityType>
+        <EntityType Name="familia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="padre" Type="int" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="menuXperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMenu" Type="int" />
+          <Property Name="idPerfil" Type="int" />
+        </EntityType>
+        <EntityType Name="modulo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orden" Type="int" />
+          <Property Name="idMenu" Type="int" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrePerfil" Type="varchar" MaxLength="50" />
+          <Property Name="usuCrea" Type="varchar" MaxLength="20" />
+          <Property Name="fechaCrea" Type="datetime" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoProducto" Type="varchar" MaxLength="10" />
+          <Property Name="nombreProducto" Type="varchar" MaxLength="200" />
+          <Property Name="descripcionProducto" Type="varchar" MaxLength="300" />
+          <Property Name="codigoCliente" Type="varchar" MaxLength="30" />
+          <Property Name="idUnidadMedida" Type="int" />
+          <Property Name="idClase" Type="int" />
+          <Property Name="idSubClase" Type="int" />
+          <Property Name="idSubSubClase" Type="int" />
+          <Property Name="idCentroCostos" Type="int" />
+          <Property Name="idSubCentroCostos" Type="int" />
+          <Property Name="idSubSubCentroCostos" Type="int" />
+          <Property Name="idFamilia" Type="int" />
+          <Property Name="idSubFamilia" Type="int" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="20" />
+          <Property Name="esParaVenta" Type="bit" />
+          <Property Name="esParaCompra" Type="bit" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoServicio" Type="varchar" MaxLength="10" />
+          <Property Name="nombreServicio" Type="varchar" MaxLength="200" />
+          <Property Name="descripcionServicio" Type="varchar" MaxLength="300" />
+          <Property Name="idCentroCostos" Type="int" />
+          <Property Name="idSubCentroCostos" Type="int" />
+          <Property Name="idSubSubCentroCostos" Type="int" />
+          <Property Name="esParaCompra" Type="bit" />
+          <Property Name="esParaVenta" Type="bit" />
+        </EntityType>
+        <EntityType Name="socioNegocio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoSocio" Type="char" MaxLength="1" />
+          <Property Name="codigoSocio" Type="varchar" MaxLength="15" />
+          <Property Name="grupoSocio" Type="char" MaxLength="1" />
+          <Property Name="idTipoDocumento" Type="int" />
+          <Property Name="nroDocumento" Type="varchar" MaxLength="15" />
+          <Property Name="razonSocial" Type="varchar" MaxLength="250" />
+          <Property Name="telefono1" Type="varchar" MaxLength="20" />
+          <Property Name="telefono2" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="direccionFiscal" Type="varchar" MaxLength="500" />
+          <Property Name="direccionAlternativa" Type="varchar" MaxLength="500" />
+          <Property Name="idCondicionPago" Type="int" />
+          <Property Name="cuentaDetraccion" Type="varchar" MaxLength="30" />
+          <Property Name="cuentaCorriente1" Type="varchar" MaxLength="30" />
+          <Property Name="cuentaMoneda1" Type="varchar" MaxLength="2" />
+          <Property Name="cuentaCodigoBanco1" Type="int" />
+          <Property Name="cuentaCorriente2" Type="varchar" MaxLength="30" />
+          <Property Name="cuentaMoneda2" Type="varchar" MaxLength="2" />
+          <Property Name="cuentaCodigoBanco2" Type="int" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="contacto1" Type="varchar" MaxLength="50" />
+          <Property Name="telefonoContacto1" Type="varchar" MaxLength="20" />
+          <Property Name="emailContacto1" Type="varchar" MaxLength="100" />
+          <Property Name="contacto2" Type="varchar" MaxLength="50" />
+          <Property Name="telefonoContacto2" Type="varchar" MaxLength="20" />
+          <Property Name="emailContacto2" Type="varchar" MaxLength="100" />
+          <Property Name="contacto3" Type="varchar" MaxLength="50" />
+          <Property Name="telefonoContacto3" Type="varchar" MaxLength="20" />
+          <Property Name="emailContacto3" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="subCentroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idCentroCostos" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCentroCostos" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="subClase">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idClase" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idClase" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="subFamilia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idFamilia" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idFamilia" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="subSubCentroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idCentroCostos" />
+            <PropertyRef Name="idSubCentroCostos" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCentroCostos" Type="int" Nullable="false" />
+          <Property Name="idSubCentroCostos" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="subSubClase">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idClase" />
+            <PropertyRef Name="idSubClase" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idClase" Type="int" Nullable="false" />
+          <Property Name="idSubClase" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="tipoDocumentoIdentidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" />
+          <Property Name="nomUsu" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="cambioPassword" Type="bit" />
+          <Property Name="estado" Type="bit" />
+          <Property Name="usuCrea" Type="varchar" MaxLength="20" />
+          <Property Name="fechaCrea" Type="datetime" />
+        </EntityType>
+        <EntityType Name="usuarioXperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idPerfil" Type="int" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <Association Name="FK_menuXperfil_menu">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="menuXperfil" Type="Self.menuXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menuXperfil">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menuXperfil_perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="0..1" />
+          <End Role="menuXperfil" Type="Self.menuXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menuXperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_modulo_menu">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="modulo" Type="Self.modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="modulo">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_condicionPago">
+          <End Role="condicionPago" Type="Self.condicionPago" Multiplicity="0..1" />
+          <End Role="socioNegocio" Type="Self.socioNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="condicionPago">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="socioNegocio">
+              <PropertyRef Name="idCondicionPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_tipoDocumentoIdentidad">
+          <End Role="tipoDocumentoIdentidad" Type="Self.tipoDocumentoIdentidad" Multiplicity="0..1" />
+          <End Role="socioNegocio" Type="Self.socioNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoDocumentoIdentidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="socioNegocio">
+              <PropertyRef Name="idTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subCentroCostos_centroCostos">
+          <End Role="centroCostos" Type="Self.centroCostos" Multiplicity="1" />
+          <End Role="subCentroCostos" Type="Self.subCentroCostos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centroCostos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subCentroCostos">
+              <PropertyRef Name="idCentroCostos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subClase_clase">
+          <End Role="clase" Type="Self.clase" Multiplicity="1" />
+          <End Role="subClase" Type="Self.subClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subClase">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subFamilia_familia">
+          <End Role="familia" Type="Self.familia" Multiplicity="1" />
+          <End Role="subFamilia" Type="Self.subFamilia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="familia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subFamilia">
+              <PropertyRef Name="idFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subSubCentroCostos_subCentroCostos">
+          <End Role="subCentroCostos" Type="Self.subCentroCostos" Multiplicity="1" />
+          <End Role="subSubCentroCostos" Type="Self.subSubCentroCostos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subCentroCostos">
+              <PropertyRef Name="id" />
+              <PropertyRef Name="idCentroCostos" />
+            </Principal>
+            <Dependent Role="subSubCentroCostos">
+              <PropertyRef Name="idSubCentroCostos" />
+              <PropertyRef Name="idCentroCostos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subSubClase_subClase">
+          <End Role="subClase" Type="Self.subClase" Multiplicity="1" />
+          <End Role="subSubClase" Type="Self.subSubClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subClase">
+              <PropertyRef Name="id" />
+              <PropertyRef Name="idClase" />
+            </Principal>
+            <Dependent Role="subSubClase">
+              <PropertyRef Name="idSubClase" />
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarioXperfil_perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="0..1" />
+          <End Role="usuarioXperfil" Type="Self.usuarioXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarioXperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarioXperfil_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="usuarioXperfil" Type="Self.usuarioXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarioXperfil">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AvalonDBModelStoreContainer">
+          <EntitySet Name="banco" EntityType="Self.banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="centroCostos" EntityType="Self.centroCostos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clase" EntityType="Self.clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="condicionPago" EntityType="Self.condicionPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="familia" EntityType="Self.familia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menuXperfil" EntityType="Self.menuXperfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="modulo" EntityType="Self.modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="servicio" EntityType="Self.servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socioNegocio" EntityType="Self.socioNegocio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subCentroCostos" EntityType="Self.subCentroCostos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subClase" EntityType="Self.subClase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subFamilia" EntityType="Self.subFamilia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subSubCentroCostos" EntityType="Self.subSubCentroCostos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subSubClase" EntityType="Self.subSubClase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoDocumentoIdentidad" EntityType="Self.tipoDocumentoIdentidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarioXperfil" EntityType="Self.usuarioXperfil" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_menuXperfil_menu" Association="Self.FK_menuXperfil_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menuXperfil" EntitySet="menuXperfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menuXperfil_perfil" Association="Self.FK_menuXperfil_perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="menuXperfil" EntitySet="menuXperfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_modulo_menu" Association="Self.FK_modulo_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="modulo" EntitySet="modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_condicionPago" Association="Self.FK_proveedor_condicionPago">
+            <End Role="condicionPago" EntitySet="condicionPago" />
+            <End Role="socioNegocio" EntitySet="socioNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_tipoDocumentoIdentidad" Association="Self.FK_proveedor_tipoDocumentoIdentidad">
+            <End Role="tipoDocumentoIdentidad" EntitySet="tipoDocumentoIdentidad" />
+            <End Role="socioNegocio" EntitySet="socioNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subCentroCostos_centroCostos" Association="Self.FK_subCentroCostos_centroCostos">
+            <End Role="centroCostos" EntitySet="centroCostos" />
+            <End Role="subCentroCostos" EntitySet="subCentroCostos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subClase_clase" Association="Self.FK_subClase_clase">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="subClase" EntitySet="subClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subFamilia_familia" Association="Self.FK_subFamilia_familia">
+            <End Role="familia" EntitySet="familia" />
+            <End Role="subFamilia" EntitySet="subFamilia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subSubCentroCostos_subCentroCostos" Association="Self.FK_subSubCentroCostos_subCentroCostos">
+            <End Role="subCentroCostos" EntitySet="subCentroCostos" />
+            <End Role="subSubCentroCostos" EntitySet="subSubCentroCostos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subSubClase_subClase" Association="Self.FK_subSubClase_subClase">
+            <End Role="subClase" EntitySet="subClase" />
+            <End Role="subSubClase" EntitySet="subSubClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarioXperfil_perfil" Association="Self.FK_usuarioXperfil_perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuarioXperfil" EntitySet="usuarioXperfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarioXperfil_usuario" Association="Self.FK_usuarioXperfil_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuarioXperfil" EntitySet="usuarioXperfil" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AvalonDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="menuXperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMenu" Type="Int32" />
+          <Property Name="idPerfil" Type="Int32" />
+          <NavigationProperty Name="perfil" Relationship="Self.FK_menuXperfil_perfil" FromRole="menuXperfil" ToRole="perfil" />
+          <NavigationProperty Name="menu" Relationship="AvalonDBModel.FK_menuXperfil_menu" FromRole="menuXperfil" ToRole="menu" />
+        </EntityType>
+        <EntityType Name="modulo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orden" Type="Int32" />
+          <Property Name="idMenu" Type="Int32" />
+          <NavigationProperty Name="menu" Relationship="AvalonDBModel.FK_modulo_menu" FromRole="modulo" ToRole="menu" />
+        </EntityType>
+        <EntityType Name="perfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrePerfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuCrea" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCrea" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="menuXperfil" Relationship="Self.FK_menuXperfil_perfil" FromRole="perfil" ToRole="menuXperfil" />
+          <NavigationProperty Name="usuarioXperfil" Relationship="Self.FK_usuarioXperfil_perfil" FromRole="perfil" ToRole="usuarioXperfil" />
+        </EntityType>
+        <EntityType Name="usuarioXperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idPerfil" Type="Int32" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="perfil" Relationship="Self.FK_usuarioXperfil_perfil" FromRole="usuarioXperfil" ToRole="perfil" />
+          <NavigationProperty Name="usuario" Relationship="AvalonDBModel.FK_usuarioXperfil_usuario" FromRole="usuarioXperfil" ToRole="usuario" />
+        </EntityType>
+        <Association Name="FK_menuXperfil_perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="0..1" />
+          <End Role="menuXperfil" Type="Self.menuXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menuXperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarioXperfil_perfil">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="0..1" />
+          <End Role="usuarioXperfil" Type="Self.usuarioXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarioXperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AvalonDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="menuXperfil" EntityType="Self.menuXperfil" />
+          <EntitySet Name="modulo" EntityType="Self.modulo" />
+          <EntitySet Name="perfil" EntityType="Self.perfil" />
+          <EntitySet Name="usuarioXperfil" EntityType="Self.usuarioXperfil" />
+          <AssociationSet Name="FK_menuXperfil_perfil" Association="Self.FK_menuXperfil_perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="menuXperfil" EntitySet="menuXperfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarioXperfil_perfil" Association="Self.FK_usuarioXperfil_perfil">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="usuarioXperfil" EntitySet="usuarioXperfil" />
+          </AssociationSet>
+          <EntitySet Name="usuario" EntityType="AvalonDBModel.usuario" />
+          <AssociationSet Name="FK_usuarioXperfil_usuario" Association="AvalonDBModel.FK_usuarioXperfil_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuarioXperfil" EntitySet="usuarioXperfil" />
+          </AssociationSet>
+          <EntitySet Name="menu" EntityType="AvalonDBModel.menu" />
+          <AssociationSet Name="FK_menuXperfil_menu" Association="AvalonDBModel.FK_menuXperfil_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menuXperfil" EntitySet="menuXperfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_modulo_menu" Association="AvalonDBModel.FK_modulo_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="modulo" EntitySet="modulo" />
+          </AssociationSet>
+          <EntitySet Name="condicionPago" EntityType="AvalonDBModel.condicionPago" />
+          <EntitySet Name="tipoDocumentoIdentidad" EntityType="AvalonDBModel.tipoDocumentoIdentidad" />
+          <EntitySet Name="banco" EntityType="AvalonDBModel.banco" />
+          <EntitySet Name="centroCostos" EntityType="AvalonDBModel.centroCostos" />
+          <EntitySet Name="clase" EntityType="AvalonDBModel.clase" />
+          <EntitySet Name="familia" EntityType="AvalonDBModel.familia" />
+          <EntitySet Name="producto" EntityType="AvalonDBModel.producto" />
+          <EntitySet Name="servicio" EntityType="AvalonDBModel.servicio" />
+          <EntitySet Name="socioNegocio" EntityType="AvalonDBModel.socioNegocio" />
+          <EntitySet Name="subCentroCostos" EntityType="AvalonDBModel.subCentroCostos" />
+          <EntitySet Name="subClase" EntityType="AvalonDBModel.subClase" />
+          <EntitySet Name="subFamilia" EntityType="AvalonDBModel.subFamilia" />
+          <EntitySet Name="subSubCentroCostos" EntityType="AvalonDBModel.subSubCentroCostos" />
+          <EntitySet Name="subSubClase" EntityType="AvalonDBModel.subSubClase" />
+          <AssociationSet Name="FK_subCentroCostos_centroCostos" Association="AvalonDBModel.FK_subCentroCostos_centroCostos">
+            <End Role="centroCostos" EntitySet="centroCostos" />
+            <End Role="subCentroCostos" EntitySet="subCentroCostos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subClase_clase" Association="AvalonDBModel.FK_subClase_clase">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="subClase" EntitySet="subClase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_condicionPago" Association="AvalonDBModel.FK_proveedor_condicionPago">
+            <End Role="condicionPago" EntitySet="condicionPago" />
+            <End Role="socioNegocio" EntitySet="socioNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subFamilia_familia" Association="AvalonDBModel.FK_subFamilia_familia">
+            <End Role="familia" EntitySet="familia" />
+            <End Role="subFamilia" EntitySet="subFamilia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_tipoDocumentoIdentidad" Association="AvalonDBModel.FK_proveedor_tipoDocumentoIdentidad">
+            <End Role="tipoDocumentoIdentidad" EntitySet="tipoDocumentoIdentidad" />
+            <End Role="socioNegocio" EntitySet="socioNegocio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subSubCentroCostos_subCentroCostos" Association="AvalonDBModel.FK_subSubCentroCostos_subCentroCostos">
+            <End Role="subCentroCostos" EntitySet="subCentroCostos" />
+            <End Role="subSubCentroCostos" EntitySet="subSubCentroCostos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subSubClase_subClase" Association="AvalonDBModel.FK_subSubClase_subClase">
+            <End Role="subClase" EntitySet="subClase" />
+            <End Role="subSubClase" EntitySet="subSubClase" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nomUsu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="cambioPassword" Type="Boolean" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="usuCrea" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCrea" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="usuarioXperfil" Relationship="AvalonDBModel.FK_usuarioXperfil_usuario" FromRole="usuario" ToRole="usuarioXperfil" />
+        </EntityType>
+        <Association Name="FK_usuarioXperfil_usuario">
+          <End Type="AvalonDBModel.usuario" Role="usuario" Multiplicity="0..1" />
+          <End Type="AvalonDBModel.usuarioXperfil" Role="usuarioXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarioXperfil">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="padre" Type="Int32" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="menuXperfil" Relationship="AvalonDBModel.FK_menuXperfil_menu" FromRole="menu" ToRole="menuXperfil" />
+          <NavigationProperty Name="modulo" Relationship="AvalonDBModel.FK_modulo_menu" FromRole="menu" ToRole="modulo" />
+        </EntityType>
+        <Association Name="FK_menuXperfil_menu">
+          <End Type="AvalonDBModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="AvalonDBModel.menuXperfil" Role="menuXperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menuXperfil">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_modulo_menu">
+          <End Type="AvalonDBModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="AvalonDBModel.modulo" Role="modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="modulo">
+              <PropertyRef Name="idMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="condicionPago">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="dias" Type="Int32" />
+          <NavigationProperty Name="socioNegocio" Relationship="AvalonDBModel.FK_proveedor_condicionPago" FromRole="condicionPago" ToRole="socioNegocio" />
+        </EntityType>
+        <EntityType Name="tipoDocumentoIdentidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="socioNegocio" Relationship="AvalonDBModel.FK_proveedor_tipoDocumentoIdentidad" FromRole="tipoDocumentoIdentidad" ToRole="socioNegocio" />
+        </EntityType>
+        <EntityType Name="banco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="centroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="subCentroCostos" Relationship="AvalonDBModel.FK_subCentroCostos_centroCostos" FromRole="centroCostos" ToRole="subCentroCostos" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="subClase" Relationship="AvalonDBModel.FK_subClase_clase" FromRole="clase" ToRole="subClase" />
+        </EntityType>
+        <EntityType Name="familia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="subFamilia" Relationship="AvalonDBModel.FK_subFamilia_familia" FromRole="familia" ToRole="subFamilia" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombreProducto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionProducto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="codigoCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idUnidadMedida" Type="Int32" />
+          <Property Name="idClase" Type="Int32" />
+          <Property Name="idSubClase" Type="Int32" />
+          <Property Name="idSubSubClase" Type="Int32" />
+          <Property Name="idCentroCostos" Type="Int32" />
+          <Property Name="idSubCentroCostos" Type="Int32" />
+          <Property Name="idSubSubCentroCostos" Type="Int32" />
+          <Property Name="idFamilia" Type="Int32" />
+          <Property Name="idSubFamilia" Type="Int32" />
+          <Property Name="ubicacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="esParaVenta" Type="Boolean" />
+          <Property Name="esParaCompra" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoServicio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombreServicio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionServicio" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idCentroCostos" Type="Int32" />
+          <Property Name="idSubCentroCostos" Type="Int32" />
+          <Property Name="idSubSubCentroCostos" Type="Int32" />
+          <Property Name="esParaCompra" Type="Boolean" />
+          <Property Name="esParaVenta" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="socioNegocio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoSocio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="codigoSocio" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="grupoSocio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="idTipoDocumento" Type="Int32" />
+          <Property Name="nroDocumento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="razonSocial" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefono1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telefono2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="direccionFiscal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="direccionAlternativa" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="idCondicionPago" Type="Int32" />
+          <Property Name="cuentaDetraccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cuentaCorriente1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cuentaMoneda1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cuentaCodigoBanco1" Type="Int32" />
+          <Property Name="cuentaCorriente2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cuentaMoneda2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cuentaCodigoBanco2" Type="Int32" />
+          <Property Name="estado" Type="Boolean" />
+          <Property Name="contacto1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoContacto1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emailContacto1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contacto2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoContacto2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emailContacto2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contacto3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoContacto3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emailContacto3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="condicionPago" Relationship="AvalonDBModel.FK_proveedor_condicionPago" FromRole="socioNegocio" ToRole="condicionPago" />
+          <NavigationProperty Name="tipoDocumentoIdentidad" Relationship="AvalonDBModel.FK_proveedor_tipoDocumentoIdentidad" FromRole="socioNegocio" ToRole="tipoDocumentoIdentidad" />
+        </EntityType>
+        <EntityType Name="subCentroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idCentroCostos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCentroCostos" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="centroCostos" Relationship="AvalonDBModel.FK_subCentroCostos_centroCostos" FromRole="subCentroCostos" ToRole="centroCostos" />
+          <NavigationProperty Name="subSubCentroCostos" Relationship="AvalonDBModel.FK_subSubCentroCostos_subCentroCostos" FromRole="subCentroCostos" ToRole="subSubCentroCostos" />
+        </EntityType>
+        <EntityType Name="subClase">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idClase" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idClase" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="clase" Relationship="AvalonDBModel.FK_subClase_clase" FromRole="subClase" ToRole="clase" />
+          <NavigationProperty Name="subSubClase" Relationship="AvalonDBModel.FK_subSubClase_subClase" FromRole="subClase" ToRole="subSubClase" />
+        </EntityType>
+        <EntityType Name="subFamilia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idFamilia" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idFamilia" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="familia" Relationship="AvalonDBModel.FK_subFamilia_familia" FromRole="subFamilia" ToRole="familia" />
+        </EntityType>
+        <EntityType Name="subSubCentroCostos">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idCentroCostos" />
+            <PropertyRef Name="idSubCentroCostos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCentroCostos" Type="Int32" Nullable="false" />
+          <Property Name="idSubCentroCostos" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="subCentroCostos" Relationship="AvalonDBModel.FK_subSubCentroCostos_subCentroCostos" FromRole="subSubCentroCostos" ToRole="subCentroCostos" />
+        </EntityType>
+        <EntityType Name="subSubClase">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idClase" />
+            <PropertyRef Name="idSubClase" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idClase" Type="Int32" Nullable="false" />
+          <Property Name="idSubClase" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="subClase" Relationship="AvalonDBModel.FK_subSubClase_subClase" FromRole="subSubClase" ToRole="subClase" />
+        </EntityType>
+        <Association Name="FK_subCentroCostos_centroCostos">
+          <End Type="AvalonDBModel.centroCostos" Role="centroCostos" Multiplicity="1" />
+          <End Type="AvalonDBModel.subCentroCostos" Role="subCentroCostos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="centroCostos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subCentroCostos">
+              <PropertyRef Name="idCentroCostos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subClase_clase">
+          <End Type="AvalonDBModel.clase" Role="clase" Multiplicity="1" />
+          <End Type="AvalonDBModel.subClase" Role="subClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subClase">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_condicionPago">
+          <End Type="AvalonDBModel.condicionPago" Role="condicionPago" Multiplicity="0..1" />
+          <End Type="AvalonDBModel.socioNegocio" Role="socioNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="condicionPago">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="socioNegocio">
+              <PropertyRef Name="idCondicionPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subFamilia_familia">
+          <End Type="AvalonDBModel.familia" Role="familia" Multiplicity="1" />
+          <End Type="AvalonDBModel.subFamilia" Role="subFamilia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="familia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subFamilia">
+              <PropertyRef Name="idFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_tipoDocumentoIdentidad">
+          <End Type="AvalonDBModel.tipoDocumentoIdentidad" Role="tipoDocumentoIdentidad" Multiplicity="0..1" />
+          <End Type="AvalonDBModel.socioNegocio" Role="socioNegocio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoDocumentoIdentidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="socioNegocio">
+              <PropertyRef Name="idTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subSubCentroCostos_subCentroCostos">
+          <End Type="AvalonDBModel.subCentroCostos" Role="subCentroCostos" Multiplicity="1" />
+          <End Type="AvalonDBModel.subSubCentroCostos" Role="subSubCentroCostos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subCentroCostos">
+              <PropertyRef Name="id" />
+              <PropertyRef Name="idCentroCostos" />
+            </Principal>
+            <Dependent Role="subSubCentroCostos">
+              <PropertyRef Name="idSubCentroCostos" />
+              <PropertyRef Name="idCentroCostos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subSubClase_subClase">
+          <End Type="AvalonDBModel.subClase" Role="subClase" Multiplicity="1" />
+          <End Type="AvalonDBModel.subSubClase" Role="subSubClase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subClase">
+              <PropertyRef Name="id" />
+              <PropertyRef Name="idClase" />
+            </Principal>
+            <Dependent Role="subSubClase">
+              <PropertyRef Name="idSubClase" />
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AvalonDBModelStoreContainer" CdmEntityContainer="AvalonDBEntities">
+          <EntitySetMapping Name="menuXperfil">
+            <EntityTypeMapping TypeName="AvalonDBModel.menuXperfil">
+              <MappingFragment StoreEntitySet="menuXperfil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modulo">
+            <EntityTypeMapping TypeName="AvalonDBModel.modulo">
+              <MappingFragment StoreEntitySet="modulo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="perfil">
+            <EntityTypeMapping TypeName="AvalonDBModel.perfil">
+              <MappingFragment StoreEntitySet="perfil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombrePerfil" ColumnName="nombrePerfil" />
+                <ScalarProperty Name="usuCrea" ColumnName="usuCrea" />
+                <ScalarProperty Name="fechaCrea" ColumnName="fechaCrea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarioXperfil">
+            <EntityTypeMapping TypeName="AvalonDBModel.usuarioXperfil">
+              <MappingFragment StoreEntitySet="usuarioXperfil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="AvalonDBModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="fechaCrea" ColumnName="fechaCrea" />
+                <ScalarProperty Name="usuCrea" ColumnName="usuCrea" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cambioPassword" ColumnName="cambioPassword" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nomUsu" ColumnName="nomUsu" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="AvalonDBModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="padre" ColumnName="padre" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="condicionPago">
+            <EntityTypeMapping TypeName="AvalonDBModel.condicionPago">
+              <MappingFragment StoreEntitySet="condicionPago">
+                <ScalarProperty Name="dias" ColumnName="dias" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoDocumentoIdentidad">
+            <EntityTypeMapping TypeName="AvalonDBModel.tipoDocumentoIdentidad">
+              <MappingFragment StoreEntitySet="tipoDocumentoIdentidad">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="banco">
+            <EntityTypeMapping TypeName="AvalonDBModel.banco">
+              <MappingFragment StoreEntitySet="banco">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="centroCostos">
+            <EntityTypeMapping TypeName="AvalonDBModel.centroCostos">
+              <MappingFragment StoreEntitySet="centroCostos">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clase">
+            <EntityTypeMapping TypeName="AvalonDBModel.clase">
+              <MappingFragment StoreEntitySet="clase">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="familia">
+            <EntityTypeMapping TypeName="AvalonDBModel.familia">
+              <MappingFragment StoreEntitySet="familia">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="AvalonDBModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="esParaCompra" ColumnName="esParaCompra" />
+                <ScalarProperty Name="esParaVenta" ColumnName="esParaVenta" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="idSubFamilia" ColumnName="idSubFamilia" />
+                <ScalarProperty Name="idFamilia" ColumnName="idFamilia" />
+                <ScalarProperty Name="idSubSubCentroCostos" ColumnName="idSubSubCentroCostos" />
+                <ScalarProperty Name="idSubCentroCostos" ColumnName="idSubCentroCostos" />
+                <ScalarProperty Name="idCentroCostos" ColumnName="idCentroCostos" />
+                <ScalarProperty Name="idSubSubClase" ColumnName="idSubSubClase" />
+                <ScalarProperty Name="idSubClase" ColumnName="idSubClase" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="idUnidadMedida" ColumnName="idUnidadMedida" />
+                <ScalarProperty Name="codigoCliente" ColumnName="codigoCliente" />
+                <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servicio">
+            <EntityTypeMapping TypeName="AvalonDBModel.servicio">
+              <MappingFragment StoreEntitySet="servicio">
+                <ScalarProperty Name="esParaVenta" ColumnName="esParaVenta" />
+                <ScalarProperty Name="esParaCompra" ColumnName="esParaCompra" />
+                <ScalarProperty Name="idSubSubCentroCostos" ColumnName="idSubSubCentroCostos" />
+                <ScalarProperty Name="idSubCentroCostos" ColumnName="idSubCentroCostos" />
+                <ScalarProperty Name="idCentroCostos" ColumnName="idCentroCostos" />
+                <ScalarProperty Name="descripcionServicio" ColumnName="descripcionServicio" />
+                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
+                <ScalarProperty Name="codigoServicio" ColumnName="codigoServicio" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socioNegocio">
+            <EntityTypeMapping TypeName="AvalonDBModel.socioNegocio">
+              <MappingFragment StoreEntitySet="socioNegocio">
+                <ScalarProperty Name="emailContacto3" ColumnName="emailContacto3" />
+                <ScalarProperty Name="telefonoContacto3" ColumnName="telefonoContacto3" />
+                <ScalarProperty Name="contacto3" ColumnName="contacto3" />
+                <ScalarProperty Name="emailContacto2" ColumnName="emailContacto2" />
+                <ScalarProperty Name="telefonoContacto2" ColumnName="telefonoContacto2" />
+                <ScalarProperty Name="contacto2" ColumnName="contacto2" />
+                <ScalarProperty Name="emailContacto1" ColumnName="emailContacto1" />
+                <ScalarProperty Name="telefonoContacto1" ColumnName="telefonoContacto1" />
+                <ScalarProperty Name="contacto1" ColumnName="contacto1" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cuentaCodigoBanco2" ColumnName="cuentaCodigoBanco2" />
+                <ScalarProperty Name="cuentaMoneda2" ColumnName="cuentaMoneda2" />
+                <ScalarProperty Name="cuentaCorriente2" ColumnName="cuentaCorriente2" />
+                <ScalarProperty Name="cuentaCodigoBanco1" ColumnName="cuentaCodigoBanco1" />
+                <ScalarProperty Name="cuentaMoneda1" ColumnName="cuentaMoneda1" />
+                <ScalarProperty Name="cuentaCorriente1" ColumnName="cuentaCorriente1" />
+                <ScalarProperty Name="cuentaDetraccion" ColumnName="cuentaDetraccion" />
+                <ScalarProperty Name="idCondicionPago" ColumnName="idCondicionPago" />
+                <ScalarProperty Name="direccionAlternativa" ColumnName="direccionAlternativa" />
+                <ScalarProperty Name="direccionFiscal" ColumnName="direccionFiscal" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="nroDocumento" ColumnName="nroDocumento" />
+                <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+                <ScalarProperty Name="grupoSocio" ColumnName="grupoSocio" />
+                <ScalarProperty Name="codigoSocio" ColumnName="codigoSocio" />
+                <ScalarProperty Name="tipoSocio" ColumnName="tipoSocio" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subCentroCostos">
+            <EntityTypeMapping TypeName="AvalonDBModel.subCentroCostos">
+              <MappingFragment StoreEntitySet="subCentroCostos">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCentroCostos" ColumnName="idCentroCostos" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subClase">
+            <EntityTypeMapping TypeName="AvalonDBModel.subClase">
+              <MappingFragment StoreEntitySet="subClase">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subFamilia">
+            <EntityTypeMapping TypeName="AvalonDBModel.subFamilia">
+              <MappingFragment StoreEntitySet="subFamilia">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idFamilia" ColumnName="idFamilia" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subSubCentroCostos">
+            <EntityTypeMapping TypeName="AvalonDBModel.subSubCentroCostos">
+              <MappingFragment StoreEntitySet="subSubCentroCostos">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idSubCentroCostos" ColumnName="idSubCentroCostos" />
+                <ScalarProperty Name="idCentroCostos" ColumnName="idCentroCostos" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subSubClase">
+            <EntityTypeMapping TypeName="AvalonDBModel.subSubClase">
+              <MappingFragment StoreEntitySet="subSubClase">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idSubClase" ColumnName="idSubClase" />
+                <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
