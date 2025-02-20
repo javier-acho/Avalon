@@ -192,6 +192,8 @@ namespace Avalon.Aplicacion.Maestros
             this.lueSubFamilia.Name = "lueSubFamilia";
             this.lueSubFamilia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueSubFamilia.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueSubFamilia.Size = new System.Drawing.Size(100, 20);
             this.lueSubFamilia.TabIndex = 9;
             // 
@@ -209,8 +211,11 @@ namespace Avalon.Aplicacion.Maestros
             this.lueFamilia.Name = "lueFamilia";
             this.lueFamilia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueFamilia.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueFamilia.Size = new System.Drawing.Size(100, 20);
             this.lueFamilia.TabIndex = 7;
+            this.lueFamilia.EditValueChanged += new System.EventHandler(this.lueFamilia_EditValueChanged);
             // 
             // labelControl10
             // 

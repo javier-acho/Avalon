@@ -91,7 +91,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="codigoProducto" Type="varchar" MaxLength="10" />
           <Property Name="nombreProducto" Type="varchar" MaxLength="200" />
-          <Property Name="descripcionProducto" Type="varchar" MaxLength="300" />
+          <Property Name="descripcionProducto" Type="varchar" MaxLength="8000" />
           <Property Name="codigoCliente" Type="varchar" MaxLength="30" />
           <Property Name="idUnidadMedida" Type="int" />
           <Property Name="idClase" Type="int" />
@@ -220,6 +220,15 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="unidadMedida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="siglas" Type="varchar" MaxLength="6" />
+          <Property Name="codSunat" Type="varchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -410,6 +419,7 @@
           <EntitySet Name="subSubCentroCostos" EntityType="Self.subSubCentroCostos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="subSubClase" EntityType="Self.subSubClase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipoDocumentoIdentidad" EntityType="Self.tipoDocumentoIdentidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="unidadMedida" EntityType="Self.unidadMedida" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarioXperfil" EntityType="Self.usuarioXperfil" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_menuXperfil_menu" Association="Self.FK_menuXperfil_menu">
@@ -599,6 +609,7 @@
             <End Role="subClase" EntitySet="subClase" />
             <End Role="subSubClase" EntitySet="subSubClase" />
           </AssociationSet>
+          <EntitySet Name="unidadMedida" EntityType="AvalonDBModel.unidadMedida" />
           </EntityContainer>
         <EntityType Name="usuario">
           <Key>
@@ -725,7 +736,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codigoProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="nombreProducto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="descripcionProducto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionProducto" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <Property Name="codigoCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="idUnidadMedida" Type="Int32" />
           <Property Name="idClase" Type="Int32" />
@@ -945,6 +956,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="unidadMedida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="siglas" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="codSunat" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1198,6 +1218,16 @@
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="idSubClase" ColumnName="idSubClase" />
                 <ScalarProperty Name="idClase" ColumnName="idClase" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unidadMedida">
+            <EntityTypeMapping TypeName="AvalonDBModel.unidadMedida">
+              <MappingFragment StoreEntitySet="unidadMedida">
+                <ScalarProperty Name="codSunat" ColumnName="codSunat" />
+                <ScalarProperty Name="siglas" ColumnName="siglas" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

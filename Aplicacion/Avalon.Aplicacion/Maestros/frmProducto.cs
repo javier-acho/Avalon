@@ -70,5 +70,22 @@ namespace Avalon.Aplicacion.Maestros
             frm.FormBorderStyle = this.FormBorderStyle;
             frm.Show();
         }
+
+        private void sbModificar_Click(object sender, EventArgs e)
+        {
+            AvalonForm frm = null;
+            if (tipo == "P")
+            {
+                var fila = (productoViewModel)gvData.GetRow(gvData.FocusedRowHandle);
+                frm = new frmProductoAgregar("M",fila.id);
+            }
+            else
+            {
+                frm = new frmServicioAgregar("C");
+            }
+            frm.MdiParent = this.MdiParent;
+            frm.FormBorderStyle = this.FormBorderStyle;
+            frm.Show();
+        }
     }
 }

@@ -26,7 +26,38 @@ namespace Avalon.API.Controllers.Maestro
             {
                 var ctr = new productoCtr();
                 var lst = ctr.ListarTodo();
+                var datos = ctr.DatosIniciales();
                 var salida = _mapper.Map<List<productoViewModel>>(lst);
+
+                DataTable dtClase = datos.Tables["CL"];
+                DataTable dtSubClase = datos.Tables["SCL"];
+                DataTable dtSubSubClase = datos.Tables["SSCL"];
+                DataTable dtFamilia = datos.Tables["fam"];
+                DataTable dtSubFamilia = datos.Tables["sfam"];
+                DataTable dtUM = datos.Tables["um"];
+                foreach (var item in salida)
+                {
+                    int idClase = item.idClase.Value;
+                    int idSubClase = item.idSubClase.Value;
+                    int idSubSubClase = item.idSubSubClase.Value;
+                    int idFamilia = item.idFamilia.Value;
+                    int idSubFamilia = item.idSubFamilia.Value;
+                    int idUnidadMedida = item.idUnidadMedida.Value;
+
+                    string clase = dtClase.Select($"id={idClase}").FirstOrDefault()["nombre"].ToString();
+                    string subClase = dtSubClase.Select($"id={idSubClase}").FirstOrDefault()["nombre"].ToString();
+                    string subSubClase = dtSubSubClase.Select($"id={idSubSubClase}").FirstOrDefault()["nombre"].ToString();
+                    string familia = dtFamilia.Select($"id={idFamilia}").FirstOrDefault()["nombre"].ToString();
+                    string subFamilia = dtSubFamilia.Select($"id={idSubFamilia}").FirstOrDefault()["nombre"].ToString();
+                    string unidadMedida = dtUM.Select($"id={idUnidadMedida}").FirstOrDefault()["nombre"].ToString();
+
+                    item.clase = clase;
+                    item.subClase = subClase;
+                    item.subSubClase = subSubClase;
+                    item.familia = familia;
+                    item.subFamilia = subFamilia;
+                    item.unidadMedida = unidadMedida;
+                }
 
                 return Ok(salida);
             }
@@ -52,8 +83,8 @@ namespace Avalon.API.Controllers.Maestro
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost]
-        [Route("api/producto/GetUnById")]
+        [HttpGet]
+        [Route("api/producto/GetUnById/{id}")]
         public IHttpActionResult ListarUno(int id)
         {
             try

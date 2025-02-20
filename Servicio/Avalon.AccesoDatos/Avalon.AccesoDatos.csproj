@@ -140,6 +140,9 @@
     <Compile Include="tipoDocumentoIdentidad.cs">
       <DependentUpon>ModeloAvalon.tt</DependentUpon>
     </Compile>
+    <Compile Include="unidadMedida.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
     <Compile Include="usuario.cs">
       <DependentUpon>ModeloAvalon.tt</DependentUpon>
     </Compile>

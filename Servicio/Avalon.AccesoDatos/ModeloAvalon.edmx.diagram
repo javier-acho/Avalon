@@ -37,6 +37,7 @@
         <AssociationConnector Association="AvalonDBModel.FK_proveedor_tipoDocumentoIdentidad" />
         <AssociationConnector Association="AvalonDBModel.FK_subSubCentroCostos_subCentroCostos" />
         <AssociationConnector Association="AvalonDBModel.FK_subSubClase_subClase" />
+        <EntityTypeShape EntityType="AvalonDBModel.unidadMedida" Width="1.5" PointX="9.375" PointY="11.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

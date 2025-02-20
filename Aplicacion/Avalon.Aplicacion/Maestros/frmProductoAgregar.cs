@@ -1,4 +1,5 @@
 ﻿using Avalon.Aplicacion.Ayuda;
+using Avalon.Utiles;
 using Avalon.ViewModel.Maestros;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace Avalon.Aplicacion.Maestros
         int idProducto;
 
         DataTable clase, subClase, subSubClase;
+        DataTable familia, subFamilia;
+        DataTable um;
         public frmProductoAgregar(string tipoEvento, int idProducto=-1)
         {
             InitializeComponent();
@@ -27,17 +30,41 @@ namespace Avalon.Aplicacion.Maestros
 
         private async void frmProductoAgregar_Load(object sender, EventArgs e)
         {
+            await CargarDatosIniciales();
+
             if (tipoEvento == "M")
             {
                 sbGuardar.Text = "Modificar";
-                CargarDatos(idProducto);
+                await CargarDatos(idProducto);
             }
-            await CargarDatosIniciales();
+            
         }
 
-        private void CargarDatos(object idSocioNegocio)
+        private async Task CargarDatos(object idProducto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string urlApi = $"{Constante.PRODUCTO}/GetUnById/{idProducto}";
+                var modelo = await HelperApi.ExecuteGet<productoViewModel>(urlApi);
+
+                teCodigoProducto.Text = modelo.codigoProducto;
+                teCodComercial.Text = modelo.codigoCliente;
+                teNombreProducto.Text = modelo.nombreProducto;
+                teUbicacion.Text = modelo.ubicacion;
+                lueUM.EditValue = (long)modelo.idUnidadMedida.Value;
+                chkCompra.Checked = modelo.esParaCompra.Value;
+                chkVenta.Checked = modelo.esParaVenta.Value;
+                lueClase.EditValue = (long)modelo.idClase.Value;
+                lueSubClase.EditValue = (long)modelo.idSubClase.Value;
+                lueSubSubClase.EditValue = (long)modelo.idSubSubClase.Value;
+                lueFamilia.EditValue = (long)modelo.idFamilia.Value;
+                lueSubFamilia.EditValue = (long)modelo.idSubFamilia.Value;
+                meComentarios.Text = modelo.descripcionProducto;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+            }
         }
 
         private async Task CargarDatosIniciales()
@@ -45,16 +72,33 @@ namespace Avalon.Aplicacion.Maestros
             try
             {
                 string url = $"{Utiles.Constante.PRODUCTO}/DatosIniciales";
+                //var salida = AsyncHelpers.RunSync<DataSet>(() => Utiles.HelperApi.ExecuteGet<DataSet>($"{url}"));
                 var salida = await Utiles.HelperApi.ExecuteGet<DataSet>($"{url}");
                 clase = salida.Tables["cl"];
                 subClase = salida.Tables["scl"];
                 subSubClase = salida.Tables["sscl"];
 
+                familia = salida.Tables["fam"];
+                subFamilia = salida.Tables["sfam"];
+
+                um = salida.Tables["um"];
+
                 lueClase.Properties.DataSource = clase;
                 lueClase.Properties.ValueMember = "id";
                 lueClase.Properties.DisplayMember = "nombre";
 
+                lueFamilia.Properties.DataSource = familia;
+                lueFamilia.Properties.ValueMember = "id";
+                lueFamilia.Properties.DisplayMember = "nombre";
+
+                lueUM.Properties.DataSource = um;
+                lueUM.Properties.ValueMember = "id";
+                lueUM.Properties.DisplayMember = "nombre";
+
                 lueClase.SelectedIndex("id");
+                lueFamilia.SelectedIndex("id");
+                lueUM.SelectedIndex("id");
+                
             }
             catch (Exception ex)
             {
@@ -80,10 +124,28 @@ namespace Avalon.Aplicacion.Maestros
 
         }
 
-        private void sbGuardar_Click(object sender, EventArgs e)
+        private void lueFamilia_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lueFamilia.EditValue == null)
+                return;
+            var idFamilia = Convert.ToInt32(lueFamilia.EditValue);
+            var filas = subFamilia.Select($"idFamilia={idFamilia}");
+            if (filas.Count() > 0)
+            {
+                var dt = filas.CopyToDataTable();
+
+                lueSubFamilia.Properties.DataSource = dt;
+                lueSubFamilia.Properties.ValueMember = "id";
+                lueSubFamilia.Properties.DisplayMember = "nombre";
+                lueSubFamilia.SelectedIndex("id");
+            }
+        }
+
+        private async void sbGuardar_Click(object sender, EventArgs e)
         {
             try
             {
+                splashScreenManager1.ShowWaitForm();
                 productoViewModel modelo = new productoViewModel();
                 modelo.codigoProducto = teCodigoProducto.Text;
                 modelo.codigoCliente = teCodComercial.Text;
@@ -95,13 +157,28 @@ namespace Avalon.Aplicacion.Maestros
                 modelo.idClase = Convert.ToInt32(lueClase.EditValue);
                 modelo.idSubClase = Convert.ToInt32(lueSubClase.EditValue);
                 modelo.idSubSubClase = Convert.ToInt32(lueSubSubClase.EditValue);
+                modelo.idFamilia = Convert.ToInt32(lueFamilia.EditValue);
+                modelo.idSubFamilia = Convert.ToInt32(lueSubFamilia.EditValue);
+                modelo.descripcionProducto = meComentarios.Text;
 
-
+                var respuesta = await Utiles.HelperApi.Execute<productoViewModel, productoViewModel>(Constante.PRODUCTO, "post", modelo);
+                Mensaje("Se registro con exito");
+                Limpiar();
+                splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
                 Error(ex);
             }
+        }
+
+        private void Limpiar()
+        {
+            teCodComercial.Limpiar();
+            teCodigoProducto.Limpiar();
+            teNombreProducto.Limpiar();
+            teUbicacion.Limpiar();
+            meComentarios.Limpiar();
         }
 
         private void lueSubSubClase_EditValueChanged(object sender, EventArgs e)

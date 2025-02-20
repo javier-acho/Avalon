@@ -47,5 +47,6 @@ namespace Avalon.AccesoDatos
         public virtual DbSet<subFamilia> subFamilia { get; set; }
         public virtual DbSet<subSubCentroCostos> subSubCentroCostos { get; set; }
         public virtual DbSet<subSubClase> subSubClase { get; set; }
+        public virtual DbSet<unidadMedida> unidadMedida { get; set; }
     }
 }

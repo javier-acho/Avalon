@@ -32,6 +32,7 @@ namespace Avalon.API.AutomapperConfig
                 x.CreateMap<subFamilia, subFamiliaViewModel>().ReverseMap();
                 x.CreateMap<producto, productoViewModel>().ReverseMap();
                 x.CreateMap<servicio, servicioViewModel>().ReverseMap();
+                x.CreateMap<unidadMedida, unidadMedidaViewModel>().ReverseMap();
 
                 x.CreateMap<socioNegocio, socioNegocioViewModel>().ReverseMap();
                 x.CreateMap<tipoDocumentoIdentidad, tipoDocumentoIdentidadViewModel>().ReverseMap();

@@ -56,6 +56,7 @@
     <Compile Include="Maestros\subSubCentroCostosViewModel.cs" />
     <Compile Include="Maestros\subSubClaseViewModel.cs" />
     <Compile Include="Maestros\tipoDocumentoIdentidadViewModel.cs" />
+    <Compile Include="Maestros\unidadMedidaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\MenuViewModel.cs" />
     <Compile Include="Seguridad\MenuXPerfilViewModel.cs" />

@@ -69,6 +69,7 @@ namespace Avalon.Aplicacion.Maestros
             this.sbModificar.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
             this.sbModificar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.sbModificar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbModificar.ImageOptions.SvgImage")));
+            this.sbModificar.Click += new System.EventHandler(this.sbModificar_Click);
             // 
             // panelControl1
             // 
@@ -139,7 +140,7 @@ namespace Avalon.Aplicacion.Maestros
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Clase";
-            this.gridColumn4.FieldName = "nombreClase";
+            this.gridColumn4.FieldName = "clase";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.OptionsColumn.ReadOnly = true;
@@ -149,7 +150,7 @@ namespace Avalon.Aplicacion.Maestros
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Sub Clase";
-            this.gridColumn5.FieldName = "nombreSubClase";
+            this.gridColumn5.FieldName = "subClase";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.OptionsColumn.ReadOnly = true;
@@ -159,7 +160,7 @@ namespace Avalon.Aplicacion.Maestros
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Sub Sub Clase";
-            this.gridColumn6.FieldName = "nombreSubSubClase";
+            this.gridColumn6.FieldName = "subSubClase";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.OptionsColumn.ReadOnly = true;
@@ -169,7 +170,7 @@ namespace Avalon.Aplicacion.Maestros
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Familia";
-            this.gridColumn7.FieldName = "nombreFamilia";
+            this.gridColumn7.FieldName = "familia";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.OptionsColumn.ReadOnly = true;
@@ -179,7 +180,7 @@ namespace Avalon.Aplicacion.Maestros
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Sub Familia";
-            this.gridColumn8.FieldName = "nombreSubFamilia";
+            this.gridColumn8.FieldName = "subFamilia";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.OptionsColumn.ReadOnly = true;
