@@ -8,9 +8,9 @@ Cambia la cadena de conexion en:
 -----------------------------------------------------------------------------------------
 Proyecto: Avalon.AccesoDatos
 Archivo: App.config
-La etiqueta <connectionStrings>, cambiar el datasource y las credenciales.
+La etiqueta < connectionStrings >, cambiar el datasource y las credenciales.
 -----------------------------------------------------------------------------------------
 Proyecto: Avalon.API
 Archivo: Web.config
-La etiqueta <connectionStrings>, cambiar el datasource y las credenciales.
+La etiqueta < connectionStrings >, cambiar el datasource y las credenciales.
 -----------------------------------------------------------------------------------------
