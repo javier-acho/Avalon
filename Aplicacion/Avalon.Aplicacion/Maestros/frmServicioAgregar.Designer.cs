@@ -36,14 +36,12 @@ namespace Avalon.Aplicacion.Maestros
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.textEdit6 = new DevExpress.XtraEditors.MemoEdit();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.meDescripcion = new DevExpress.XtraEditors.MemoEdit();
+            this.chkCompra = new DevExpress.XtraEditors.CheckEdit();
+            this.chkVenta = new DevExpress.XtraEditors.CheckEdit();
+            this.teNombreServicio = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.teCodigoServicio = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -52,12 +50,11 @@ namespace Avalon.Aplicacion.Maestros
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meDescripcion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCompra.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVenta.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teNombreServicio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teCodigoServicio.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -78,6 +75,7 @@ namespace Avalon.Aplicacion.Maestros
             this.sbGuardar.Size = new System.Drawing.Size(95, 34);
             this.sbGuardar.TabIndex = 11;
             this.sbGuardar.Text = "Guardar";
+            this.sbGuardar.Click += new System.EventHandler(this.sbGuardar_Click);
             // 
             // panelControl2
             // 
@@ -110,43 +108,43 @@ namespace Avalon.Aplicacion.Maestros
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.textEdit6);
+            this.xtraTabPage2.Controls.Add(this.meDescripcion);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(605, 224);
+            this.xtraTabPage2.Size = new System.Drawing.Size(547, 161);
             this.xtraTabPage2.Text = "Comentarios";
             // 
-            // textEdit6
+            // meDescripcion
             // 
-            this.textEdit6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textEdit6.Location = new System.Drawing.Point(0, 0);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(605, 221);
-            this.textEdit6.TabIndex = 0;
+            this.meDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.meDescripcion.Location = new System.Drawing.Point(0, 0);
+            this.meDescripcion.Name = "meDescripcion";
+            this.meDescripcion.Size = new System.Drawing.Size(547, 221);
+            this.meDescripcion.TabIndex = 0;
             // 
-            // checkEdit2
+            // chkCompra
             // 
-            this.checkEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEdit2.Location = new System.Drawing.Point(371, 12);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "Para Compra";
-            this.checkEdit2.Size = new System.Drawing.Size(89, 20);
-            this.checkEdit2.TabIndex = 29;
+            this.chkCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkCompra.Location = new System.Drawing.Point(371, 12);
+            this.chkCompra.Name = "chkCompra";
+            this.chkCompra.Properties.Caption = "Para Compra";
+            this.chkCompra.Size = new System.Drawing.Size(89, 20);
+            this.chkCompra.TabIndex = 29;
             // 
-            // checkEdit1
+            // chkVenta
             // 
-            this.checkEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEdit1.Location = new System.Drawing.Point(466, 12);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Para Venta";
-            this.checkEdit1.Size = new System.Drawing.Size(75, 20);
-            this.checkEdit1.TabIndex = 28;
+            this.chkVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkVenta.Location = new System.Drawing.Point(466, 12);
+            this.chkVenta.Name = "chkVenta";
+            this.chkVenta.Properties.Caption = "Para Venta";
+            this.chkVenta.Size = new System.Drawing.Size(75, 20);
+            this.chkVenta.TabIndex = 28;
             // 
-            // textEdit3
+            // teNombreServicio
             // 
-            this.textEdit3.Location = new System.Drawing.Point(60, 38);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(287, 20);
-            this.textEdit3.TabIndex = 27;
+            this.teNombreServicio.Location = new System.Drawing.Point(60, 38);
+            this.teNombreServicio.Name = "teNombreServicio";
+            this.teNombreServicio.Size = new System.Drawing.Size(287, 20);
+            this.teNombreServicio.TabIndex = 27;
             // 
             // labelControl3
             // 
@@ -156,27 +154,12 @@ namespace Avalon.Aplicacion.Maestros
             this.labelControl3.TabIndex = 26;
             this.labelControl3.Text = "Nombre";
             // 
-            // textEdit2
+            // teCodigoServicio
             // 
-            this.textEdit2.Location = new System.Drawing.Point(236, 12);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(111, 20);
-            this.textEdit2.TabIndex = 25;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(158, 15);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(72, 13);
-            this.labelControl2.TabIndex = 24;
-            this.labelControl2.Text = "Cod. Comercial";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(60, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(92, 20);
-            this.textEdit1.TabIndex = 23;
+            this.teCodigoServicio.Location = new System.Drawing.Point(60, 12);
+            this.teCodigoServicio.Name = "teCodigoServicio";
+            this.teCodigoServicio.Size = new System.Drawing.Size(92, 20);
+            this.teCodigoServicio.TabIndex = 23;
             // 
             // labelControl1
             // 
@@ -191,19 +174,18 @@ namespace Avalon.Aplicacion.Maestros
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 306);
-            this.Controls.Add(this.checkEdit2);
-            this.Controls.Add(this.checkEdit1);
-            this.Controls.Add(this.textEdit3);
+            this.Controls.Add(this.chkCompra);
+            this.Controls.Add(this.chkVenta);
+            this.Controls.Add(this.teNombreServicio);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.textEdit2);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.teCodigoServicio);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmServicioAgregar.IconOptions.Image")));
             this.Name = "frmServicioAgregar";
             this.Text = "Nuevo Servicio";
+            this.Load += new System.EventHandler(this.frmServicioAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -211,12 +193,11 @@ namespace Avalon.Aplicacion.Maestros
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meDescripcion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCompra.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVenta.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teNombreServicio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teCodigoServicio.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,14 +211,12 @@ namespace Avalon.Aplicacion.Maestros
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraEditors.MemoEdit textEdit6;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.MemoEdit meDescripcion;
+        private DevExpress.XtraEditors.CheckEdit chkCompra;
+        private DevExpress.XtraEditors.CheckEdit chkVenta;
+        private DevExpress.XtraEditors.TextEdit teNombreServicio;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit teCodigoServicio;
         private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

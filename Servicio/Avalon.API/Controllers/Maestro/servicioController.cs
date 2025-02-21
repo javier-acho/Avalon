@@ -52,8 +52,8 @@ namespace Avalon.API.Controllers.Maestro
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost]
-        [Route("api/servicio/GetUnById")]
+        [HttpGet]
+        [Route("api/servicio/GetUnById/{id}")]
         public IHttpActionResult ListarUno(int id)
         {
             try
@@ -81,7 +81,7 @@ namespace Avalon.API.Controllers.Maestro
             }
             catch (Exception ex)
             {
-                throw ex;
+                return BadRequest(ex.Message);
             }
         }
         [HttpPut]

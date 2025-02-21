@@ -40,7 +40,7 @@ namespace Avalon.Aplicacion.Maestros
             
         }
 
-        private async Task CargarDatos(object idProducto)
+        private async Task CargarDatos(int idProducto)
         {
             try
             {
@@ -160,8 +160,15 @@ namespace Avalon.Aplicacion.Maestros
                 modelo.idFamilia = Convert.ToInt32(lueFamilia.EditValue);
                 modelo.idSubFamilia = Convert.ToInt32(lueSubFamilia.EditValue);
                 modelo.descripcionProducto = meComentarios.Text;
-
-                var respuesta = await Utiles.HelperApi.Execute<productoViewModel, productoViewModel>(Constante.PRODUCTO, "post", modelo);
+                if(tipoEvento=="M")
+                {
+                    modelo.id = idProducto;
+                    var respuesta = await Utiles.HelperApi.Execute<productoViewModel, productoViewModel>(Constante.PRODUCTO, "put", modelo);
+                }
+                else
+                { 
+                    var respuesta = await Utiles.HelperApi.Execute<productoViewModel, productoViewModel>(Constante.PRODUCTO, "post", modelo);
+                }
                 Mensaje("Se registro con exito");
                 Limpiar();
                 splashScreenManager1.CloseWaitForm();

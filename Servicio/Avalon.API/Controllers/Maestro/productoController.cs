@@ -112,7 +112,7 @@ namespace Avalon.API.Controllers.Maestro
             }
             catch (Exception ex)
             {
-                throw ex;
+                return BadRequest(ex.Message);
             }
         }
         [HttpPut]
