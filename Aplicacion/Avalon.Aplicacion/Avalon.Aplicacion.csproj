@@ -91,6 +91,18 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\frmCentroCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmCentroCosto.Designer.cs">
+      <DependentUpon>frmCentroCosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\frmCentroCostoAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmCentroCostoAgregar.Designer.cs">
+      <DependentUpon>frmCentroCostoAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maestros\frmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmCentroCosto.resx">
+      <DependentUpon>frmCentroCosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmCentroCostoAgregar.resx">
+      <DependentUpon>frmCentroCostoAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>

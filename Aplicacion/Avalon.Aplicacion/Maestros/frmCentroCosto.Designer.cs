@@ -1,7 +1,7 @@
 ﻿
-namespace Avalon.Aplicacion.Seguridad
+namespace Avalon.Aplicacion.Maestros
 {
-    partial class frmMantenimientoPerfil
+    partial class frmCentroCosto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,17 @@ namespace Avalon.Aplicacion.Seguridad
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoPerfil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCentroCosto));
+            this.gcData = new DevExpress.XtraGrid.GridControl();
+            this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sbAsignarPerfil = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
             // sbAgregar
@@ -65,32 +72,88 @@ namespace Avalon.Aplicacion.Seguridad
             this.panelControl1.Controls.SetChildIndex(this.sbEliminar, 0);
             this.panelControl1.Controls.SetChildIndex(this.sbAsignarPerfil, 0);
             // 
+            // gcData
+            // 
+            this.gcData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcData.Location = new System.Drawing.Point(0, 63);
+            this.gcData.MainView = this.gvData;
+            this.gcData.Name = "gcData";
+            this.gcData.Size = new System.Drawing.Size(800, 387);
+            this.gcData.TabIndex = 1;
+            this.gcData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvData});
+            // 
+            // gvData
+            // 
+            this.gvData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
+            this.gvData.GridControl = this.gcData;
+            this.gvData.Name = "gvData";
+            this.gvData.OptionsView.ColumnAutoWidth = false;
+            this.gvData.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Nombre";
+            this.gridColumn1.FieldName = "nombre";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Nombre Corto";
+            this.gridColumn2.FieldName = "nombreCorto";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Estado";
+            this.gridColumn3.FieldName = "estado";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
             // sbAsignarPerfil
             // 
             this.sbAsignarPerfil.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.sbAsignarPerfil.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbAsignarPerfil.ImageOptions.SvgImage")));
-            this.sbAsignarPerfil.Location = new System.Drawing.Point(264, 5);
+            this.sbAsignarPerfil.Location = new System.Drawing.Point(264, 4);
             this.sbAsignarPerfil.Name = "sbAsignarPerfil";
             this.sbAsignarPerfil.Size = new System.Drawing.Size(78, 53);
             this.sbAsignarPerfil.TabIndex = 4;
-            this.sbAsignarPerfil.Text = "Asignar Perfil";
+            this.sbAsignarPerfil.Text = "Sub CC";
             // 
-            // frmMantenimientoPerfil
+            // frmCentroCosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmMantenimientoPerfil.IconOptions.Image")));
-            this.Name = "frmMantenimientoPerfil";
-            this.Text = "frmMantenimientoPerfil";
+            this.Controls.Add(this.gcData);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmCentroCosto.IconOptions.Image")));
+            this.Name = "frmCentroCosto";
+            this.Text = "frmCentroCosto";
+            this.Controls.SetChildIndex(this.panelControl1, 0);
+            this.Controls.SetChildIndex(this.gcData, 0);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private DevExpress.XtraGrid.GridControl gcData;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.SimpleButton sbAsignarPerfil;
     }
 }

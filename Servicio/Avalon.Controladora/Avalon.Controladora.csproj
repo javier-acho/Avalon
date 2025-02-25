@@ -43,9 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaz\ICRUDctr.cs" />
+    <Compile Include="Maestro\centroCostosCtr.cs" />
+    <Compile Include="Maestro\claseCtr.cs" />
+    <Compile Include="Maestro\familiaCtr.cs" />
     <Compile Include="Maestro\productoCtr.cs" />
     <Compile Include="Maestro\servicioCtr.cs" />
     <Compile Include="Maestro\socioNegocioCtr.cs" />
+    <Compile Include="Maestro\subCentrocostoCtr.cs" />
+    <Compile Include="Maestro\subClaseCtr.cs" />
+    <Compile Include="Maestro\subFamiliaCtr.cs" />
+    <Compile Include="Maestro\subSubCentrocostoCtr.cs" />
+    <Compile Include="Maestro\subSubClaseCtr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\menuCtr.cs" />
     <Compile Include="Seguridad\usuarioCtr.cs" />
