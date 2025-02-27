@@ -76,8 +76,9 @@ namespace Avalon.Controladora.Maestro
         {
             try
             {
+                //solo cambiamos el estadp
                 centroCostosRepository ad = new centroCostosRepository();
-                var respuesta = ad.Delete(modelo);
+                var respuesta = ad.Update(modelo);
                 return respuesta;
             }
             catch (Exception ex)

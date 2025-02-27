@@ -77,7 +77,7 @@ namespace Avalon.Controladora.Maestro
             try
             {
                 subSubCentroCostosRepository ad = new subSubCentroCostosRepository();
-                var salida = ad.Delete(modelo);
+                var salida = ad.Update(modelo);
                 return salida;
             }
             catch (Exception ex)

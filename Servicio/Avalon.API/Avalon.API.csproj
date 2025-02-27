@@ -168,9 +168,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="AutomapperConfig\AutoMapperProfile.cs" />
+    <Compile Include="Controllers\Maestro\centroCostoController.cs" />
     <Compile Include="Controllers\Maestro\productoController.cs" />
     <Compile Include="Controllers\Maestro\servicioController.cs" />
     <Compile Include="Controllers\Maestro\socioNegocioController.cs" />
+    <Compile Include="Controllers\Maestro\subCentroCostoController.cs" />
+    <Compile Include="Controllers\Maestro\subSubCentroCostoController.cs" />
     <Compile Include="Controllers\Seguridad\menuController.cs" />
     <Compile Include="Controllers\Seguridad\usuarioController.cs" />
     <Compile Include="Global.asax.cs">
