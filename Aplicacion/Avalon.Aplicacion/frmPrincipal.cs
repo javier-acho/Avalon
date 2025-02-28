@@ -167,7 +167,7 @@ namespace Avalon.Aplicacion
                     case "14": formulario = new Maestros.frmProducto("S"); break;
                     case "15": formulario = null; break;
                     case "16": formulario = null; break;
-                    case "17": formulario = null; break;
+                    case "17": formulario = new Maestros.frmCentroCosto(); break;
 
                     default: break;
                 }

@@ -48,6 +48,7 @@ namespace Avalon.Aplicacion.Maestros
             this.sbAgregar.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
             this.sbAgregar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.sbAgregar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbAgregar.ImageOptions.SvgImage")));
+            this.sbAgregar.Click += new System.EventHandler(this.sbAgregar_Click);
             // 
             // sbEliminar
             // 
@@ -62,6 +63,7 @@ namespace Avalon.Aplicacion.Maestros
             this.sbModificar.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Bottom;
             this.sbModificar.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.sbModificar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbModificar.ImageOptions.SvgImage")));
+            this.sbModificar.Click += new System.EventHandler(this.sbModificar_Click);
             // 
             // panelControl1
             // 
@@ -91,6 +93,7 @@ namespace Avalon.Aplicacion.Maestros
             this.gridColumn3});
             this.gvData.GridControl = this.gcData;
             this.gvData.Name = "gvData";
+            this.gvData.OptionsDetail.EnableMasterViewMode = false;
             this.gvData.OptionsView.ColumnAutoWidth = false;
             this.gvData.OptionsView.ShowGroupPanel = false;
             // 
@@ -99,6 +102,8 @@ namespace Avalon.Aplicacion.Maestros
             this.gridColumn1.Caption = "Nombre";
             this.gridColumn1.FieldName = "nombre";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -107,6 +112,8 @@ namespace Avalon.Aplicacion.Maestros
             this.gridColumn2.Caption = "Nombre Corto";
             this.gridColumn2.FieldName = "nombreCorto";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
@@ -115,6 +122,8 @@ namespace Avalon.Aplicacion.Maestros
             this.gridColumn3.Caption = "Estado";
             this.gridColumn3.FieldName = "estado";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
@@ -136,7 +145,8 @@ namespace Avalon.Aplicacion.Maestros
             this.Controls.Add(this.gcData);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmCentroCosto.IconOptions.Image")));
             this.Name = "frmCentroCosto";
-            this.Text = "frmCentroCosto";
+            this.Text = "Centro de Costo";
+            this.Load += new System.EventHandler(this.frmCentroCosto_Load);
             this.Controls.SetChildIndex(this.panelControl1, 0);
             this.Controls.SetChildIndex(this.gcData, 0);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

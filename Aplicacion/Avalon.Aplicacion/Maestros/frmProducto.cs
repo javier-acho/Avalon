@@ -1,4 +1,5 @@
-﻿using Avalon.ViewModel.Maestros;
+﻿using Avalon.Utiles;
+using Avalon.ViewModel.Maestros;
 using DevExpress.XtraGrid.Columns;
 using System;
 using System.Collections.Generic;
@@ -104,7 +105,7 @@ namespace Avalon.Aplicacion.Maestros
             gvData.Columns.AddRange(new GridColumn[] { gridColumn1, gridColumn2, gridColumn9, gridColumn10 });
         }
 
-        private void sbAgregar_Click(object sender, EventArgs e)
+        private async void sbAgregar_Click(object sender, EventArgs e)
         {
             AvalonForm frm = null;
             if (tipo=="P")

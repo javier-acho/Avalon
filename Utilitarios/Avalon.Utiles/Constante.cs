@@ -103,5 +103,19 @@ namespace Avalon.Utiles
                 return $"{URL_API}servicio/seleccionaUno";
             }
         }
+        public static string CLASE
+        {
+            get
+            {
+                return $"{URL_API}clase";
+            }
+        }
+        public static string CENTRO_COSTO
+        {
+            get
+            {
+                return $"{URL_API}centroCosto";
+            }
+        }
     }
 }

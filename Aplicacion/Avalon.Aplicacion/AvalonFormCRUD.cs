@@ -15,6 +15,7 @@ namespace Avalon.Aplicacion
         public AvalonFormCRUD()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
     }
 }

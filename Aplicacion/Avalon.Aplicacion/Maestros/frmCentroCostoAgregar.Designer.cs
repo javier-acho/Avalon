@@ -105,6 +105,7 @@ namespace Avalon.Aplicacion.Maestros
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmCentroCostoAgregar.IconOptions.Image")));
             this.Name = "frmCentroCostoAgregar";
             this.Text = "Agregar CC";
+            this.Load += new System.EventHandler(this.frmCentroCostoAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.teNombre.Properties)).EndInit();
