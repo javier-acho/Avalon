@@ -12,16 +12,18 @@ using System.Windows.Forms;
 
 namespace Avalon.Aplicacion.Maestros
 {
-    public partial class frmCentroCosto : AvalonFormCRUD
+    public partial class frmSubCentroCostos: AvalonFormCRUD
     {
-        public frmCentroCosto()
+        int idCC;
+        public frmSubCentroCostos(int idCC)
         {
             InitializeComponent();
+            this.idCC = idCC;
         }
 
         private void sbAgregar_Click(object sender, EventArgs e)
         {
-            var frm = new frmCentroCostoAgregar("C");
+            var frm = new frmSubCentroCostosAgregar(idCC,"C");
             frm.FormClosed += Frm_FormClosed;
             frm.MdiParent = this.MdiParent;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -33,16 +35,15 @@ namespace Avalon.Aplicacion.Maestros
             await CargarDatos();
         }
 
-        private async void frmCentroCosto_Load(object sender, EventArgs e)
+        private async void frmSubCentroCostos_Load(object sender, EventArgs e)
         {
             await CargarDatos();
         }
-
         private async Task CargarDatos()
         {
             try
             {
-                var lsta = await Utiles.HelperApi.ExecuteGet<List<centroCostosViewModel>>(Constante.CENTRO_COSTO);
+                var lsta = await Utiles.HelperApi.ExecuteGet<List<subCentroCostosViewModel>>($"{Constante.SUB_CENTRO_COSTO}/byCC/{idCC}");
                 gcData.DataSource = lsta;
                 gvData.BestFitColumns();
             }
@@ -54,23 +55,13 @@ namespace Avalon.Aplicacion.Maestros
 
         private void sbModificar_Click(object sender, EventArgs e)
         {
-            if (gvData.FocusedRowHandle <= 0) return;
             AvalonForm frm = null;
-            var fila = (centroCostosViewModel)gvData.GetRow(gvData.FocusedRowHandle);
-            frm = new frmCentroCostoAgregar("M", fila.id);
+            var fila = (subCentroCostosViewModel)gvData.GetRow(gvData.FocusedRowHandle);
+            frm = new frmSubCentroCostosAgregar(fila.idCentroCostos, "M", fila.id);
 
             frm.FormClosed += Frm_FormClosed;
             frm.MdiParent = this.MdiParent;
             frm.FormBorderStyle = this.FormBorderStyle;
-            frm.Show();
-        }
-
-        private void sbAsignarPerfil_Click(object sender, EventArgs e)
-        {
-            if (gvData.FocusedRowHandle < 0) return;
-            var fila = (centroCostosViewModel)gvData.GetRow(gvData.FocusedRowHandle);
-            var idCC = fila.id;
-            frmSubCentroCostos frm = new frmSubCentroCostos(idCC);
             frm.Show();
         }
     }

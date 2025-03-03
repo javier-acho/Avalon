@@ -99,5 +99,22 @@ namespace Avalon.API.Controllers.Maestro
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("api/subCentroCosto/byCC/{idCC}")]
+        public IHttpActionResult ConsultaXCC(int idCC)
+        {
+            try
+            {
+                subCentrocostoCtr ctr = new subCentrocostoCtr();
+                var resultado = ctr.ConsultarByCriterio(x => x.idCentroCostos == idCC);
+                var salida = _mapper.Map<List<subCentroCostosViewModel>>(resultado);
+                return Ok(salida);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

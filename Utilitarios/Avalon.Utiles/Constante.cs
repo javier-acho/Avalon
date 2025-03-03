@@ -117,5 +117,12 @@ namespace Avalon.Utiles
                 return $"{URL_API}centroCosto";
             }
         }
+        public static string SUB_CENTRO_COSTO
+        {
+            get
+            {
+                return $"{URL_API}subCentroCosto";
+            }
+        }
     }
 }

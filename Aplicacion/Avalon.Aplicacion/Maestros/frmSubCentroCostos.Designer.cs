@@ -1,7 +1,6 @@
-﻿
-namespace Avalon.Aplicacion.Maestros
+﻿namespace Avalon.Aplicacion.Maestros
 {
-    partial class frmCentroCosto
+    partial class frmSubCentroCostos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +28,13 @@ namespace Avalon.Aplicacion.Maestros
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCentroCosto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSubCentroCostos));
+            this.sbAsignarPerfil = new DevExpress.XtraEditors.SimpleButton();
             this.gcData = new DevExpress.XtraGrid.GridControl();
             this.gvData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sbAsignarPerfil = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
@@ -74,6 +73,16 @@ namespace Avalon.Aplicacion.Maestros
             this.panelControl1.Controls.SetChildIndex(this.sbEliminar, 0);
             this.panelControl1.Controls.SetChildIndex(this.sbAsignarPerfil, 0);
             // 
+            // sbAsignarPerfil
+            // 
+            this.sbAsignarPerfil.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.sbAsignarPerfil.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbAsignarPerfil.ImageOptions.SvgImage")));
+            this.sbAsignarPerfil.Location = new System.Drawing.Point(264, 5);
+            this.sbAsignarPerfil.Name = "sbAsignarPerfil";
+            this.sbAsignarPerfil.Size = new System.Drawing.Size(78, 53);
+            this.sbAsignarPerfil.TabIndex = 5;
+            this.sbAsignarPerfil.Text = "Sub CC";
+            // 
             // gcData
             // 
             this.gcData.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,7 +90,7 @@ namespace Avalon.Aplicacion.Maestros
             this.gcData.MainView = this.gvData;
             this.gcData.Name = "gcData";
             this.gcData.Size = new System.Drawing.Size(800, 387);
-            this.gcData.TabIndex = 1;
+            this.gcData.TabIndex = 2;
             this.gcData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvData});
             // 
@@ -127,27 +136,16 @@ namespace Avalon.Aplicacion.Maestros
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // sbAsignarPerfil
-            // 
-            this.sbAsignarPerfil.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.sbAsignarPerfil.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbAsignarPerfil.ImageOptions.SvgImage")));
-            this.sbAsignarPerfil.Location = new System.Drawing.Point(264, 4);
-            this.sbAsignarPerfil.Name = "sbAsignarPerfil";
-            this.sbAsignarPerfil.Size = new System.Drawing.Size(78, 53);
-            this.sbAsignarPerfil.TabIndex = 4;
-            this.sbAsignarPerfil.Text = "Sub CC";
-            this.sbAsignarPerfil.Click += new System.EventHandler(this.sbAsignarPerfil_Click);
-            // 
-            // frmCentroCosto
+            // frmSubCentroCostos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gcData);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmCentroCosto.IconOptions.Image")));
-            this.Name = "frmCentroCosto";
-            this.Text = "Centro de Costo";
-            this.Load += new System.EventHandler(this.frmCentroCosto_Load);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmSubCentroCostos.IconOptions.Image")));
+            this.Name = "frmSubCentroCostos";
+            this.Text = "Sub Centro de Costos";
+            this.Load += new System.EventHandler(this.frmSubCentroCostos_Load);
             this.Controls.SetChildIndex(this.panelControl1, 0);
             this.Controls.SetChildIndex(this.gcData, 0);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -160,11 +158,11 @@ namespace Avalon.Aplicacion.Maestros
 
         #endregion
 
+        private DevExpress.XtraEditors.SimpleButton sbAsignarPerfil;
         private DevExpress.XtraGrid.GridControl gcData;
         private DevExpress.XtraGrid.Views.Grid.GridView gvData;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.SimpleButton sbAsignarPerfil;
     }
 }

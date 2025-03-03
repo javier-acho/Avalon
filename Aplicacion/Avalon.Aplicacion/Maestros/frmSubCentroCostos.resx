@@ -197,10 +197,10 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="frmCentroCosto.IconOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="frmSubCentroCostos.IconOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAACppJREFUWEfFV3lQlUcS/7h5B4coKKfZzepWNmsqtdnKpspsDk1lQdSIBzEmMaei
+        wQAADsEBuJFr7QAACppJREFUWEfFV3lQlUcS/7h5B4coKKfZzepWNmsqtdnKpspsDk1lQdSIBzEmMaei
         wWjkUm6QQyAcoijiGeLGAxEIIsQDo4DECASNi0aJgOCtwOMdIAL+9jffA0Q3tf/mUc3MN9PT3dPT3b8Z
         Se2xBgrXaCjdYn4Xkn5P5YKkxweioRjsK+T+kHEjjRR9Iwne/yXjOtF/tMZIQ+Mj5yWlKzuChphG9Ie+
         HwkX31wsxp4cHyTjGqPBvz33OEliwtotCgqXKFiMi4HZmFWQRoXC1CEKJmxN+G06KoJjIbAaFwpr97Uw

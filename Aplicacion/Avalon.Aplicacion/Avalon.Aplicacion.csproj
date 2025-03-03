@@ -85,6 +85,12 @@
     <Compile Include="Ayuda\Extensiones.cs" />
     <Compile Include="Ayuda\Global.cs" />
     <Compile Include="Ayuda\AsyncHelpers.cs" />
+    <Compile Include="Compra\frmRequerimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compra\frmRequerimiento.Designer.cs">
+      <DependentUpon>frmRequerimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,18 @@
     </Compile>
     <Compile Include="Maestros\frmSocioNegocioAgregar.Designer.cs">
       <DependentUpon>frmSocioNegocioAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\frmSubCentroCostos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmSubCentroCostos.Designer.cs">
+      <DependentUpon>frmSubCentroCostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\frmSubCentroCostosAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmSubCentroCostosAgregar.Designer.cs">
+      <DependentUpon>frmSubCentroCostosAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmSocioNegocioAgregar.resx">
       <DependentUpon>frmSocioNegocioAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmSubCentroCostos.resx">
+      <DependentUpon>frmSubCentroCostos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmSubCentroCostosAgregar.resx">
+      <DependentUpon>frmSubCentroCostosAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
