@@ -116,6 +116,12 @@
     <Compile Include="Repositorio\Maestro\subSubClaseRepository.cs" />
     <Compile Include="Repositorio\menuRepository.cs" />
     <Compile Include="Repositorio\usuarioRepository.cs" />
+    <Compile Include="requerimiento.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="requerimientoDetalle.cs">
+      <DependentUpon>ModeloAvalon.tt</DependentUpon>
+    </Compile>
     <Compile Include="servicio.cs">
       <DependentUpon>ModeloAvalon.tt</DependentUpon>
     </Compile>

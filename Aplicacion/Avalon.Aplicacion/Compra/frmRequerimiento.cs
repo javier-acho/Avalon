@@ -16,5 +16,10 @@ namespace Avalon.Aplicacion.Compra
         {
             InitializeComponent();
         }
+
+        private void sbGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

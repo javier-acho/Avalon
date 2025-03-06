@@ -28,5 +28,6 @@ namespace Avalon.API
             //Elimino que el sistema devuelva en XML, sólo trabajaremos con JSON
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
         }
+
     }
 }

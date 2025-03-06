@@ -19,8 +19,15 @@ namespace Avalon.Aplicacion.Maestros
             InitializeComponent();
         }
 
-        private void sbAgregar_Click(object sender, EventArgs e)
+        private async void sbAgregar_Click(object sender, EventArgs e)
         {
+            claseViewModel vm = new claseViewModel();
+            vm.id = 1;
+            vm.nombre = "clase 1A";
+            vm.nombreCorto = "CC1A";
+            vm.estado = false;
+            var lsta = await Utiles.HelperApi.Execute<claseViewModel, claseViewModel>($"{Constante.CLASE}/delete","post",vm);
+
             var frm = new frmCentroCostoAgregar("C");
             frm.FormClosed += Frm_FormClosed;
             frm.MdiParent = this.MdiParent;

@@ -14,6 +14,7 @@ namespace Avalon.API.Controllers.Maestro
 	public abstract class controllerCRUD<TM,TVM,C>: ApiController where C:ICRUDctr<TM>
     {
         IMapper _mapper;
+        public const string ruta = "";
         protected controllerCRUD()
         {
             _mapper = WebApiApplication.MapperConfiguration.CreateMapper();
@@ -81,5 +82,6 @@ namespace Avalon.API.Controllers.Maestro
                 return BadRequest(ex.Message);
             }
         }
+        
     }
 }

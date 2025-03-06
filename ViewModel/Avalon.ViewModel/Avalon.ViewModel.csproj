@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compra\requerimientoDetalleViewModel.cs" />
+    <Compile Include="Compra\requerimientoViewModel.cs" />
     <Compile Include="Maestros\bancoViewModel.cs" />
     <Compile Include="Maestros\centroCostosViewModel.cs" />
     <Compile Include="Maestros\claseViewModel.cs" />

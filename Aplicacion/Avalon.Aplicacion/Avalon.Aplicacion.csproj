@@ -195,6 +195,9 @@
     <EmbeddedResource Include="AvalonFormCRUD.resx">
       <DependentUpon>AvalonFormCRUD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compra\frmRequerimiento.resx">
+      <DependentUpon>frmRequerimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
