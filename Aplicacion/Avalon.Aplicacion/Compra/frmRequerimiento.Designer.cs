@@ -65,6 +65,9 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sbAddItem = new DevExpress.XtraEditors.SimpleButton();
+            this.rilueProducto = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teSolicitante.Properties)).BeginInit();
@@ -85,6 +88,7 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilueProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -358,6 +362,8 @@
             this.gcData.Location = new System.Drawing.Point(2, 2);
             this.gcData.MainView = this.gvData;
             this.gcData.Name = "gcData";
+            this.gcData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rilueProducto});
             this.gcData.Size = new System.Drawing.Size(662, 224);
             this.gcData.TabIndex = 0;
             this.gcData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -367,9 +373,11 @@
             // 
             this.gvData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
+            this.gridColumn8,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn9,
             this.gridColumn6,
             this.gridColumn5,
             this.gridColumn7});
@@ -380,6 +388,7 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Item";
+            this.gridColumn1.FieldName = "linea";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
@@ -387,6 +396,8 @@
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Codigo Producto";
+            this.gridColumn2.ColumnEdit = this.rilueProducto;
+            this.gridColumn2.FieldName = "codigoProducto";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
@@ -394,6 +405,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Descripcion";
+            this.gridColumn3.FieldName = "nombreProducto";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
@@ -401,6 +413,7 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Cantidad";
+            this.gridColumn4.FieldName = "cantidad";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
@@ -408,6 +421,7 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Unidad Medida";
+            this.gridColumn6.FieldName = "codUM";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
@@ -415,6 +429,7 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Cantidad Aprobada";
+            this.gridColumn5.FieldName = "cantidadAprobada";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 5;
@@ -422,6 +437,7 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Observaciones";
+            this.gridColumn7.FieldName = "observacion";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
@@ -435,6 +451,28 @@
             this.sbAddItem.TabIndex = 21;
             this.sbAddItem.Text = "Agregar Item";
             this.sbAddItem.Click += new System.EventHandler(this.sbAddItem_Click);
+            // 
+            // rilueProducto
+            // 
+            this.rilueProducto.AutoHeight = false;
+            this.rilueProducto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rilueProducto.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("codigoProducto", "Codigo"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombreProducto", "Nombre")});
+            this.rilueProducto.Name = "rilueProducto";
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "IdProd";
+            this.gridColumn8.FieldName = "id";
+            this.gridColumn8.Name = "gridColumn8";
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "idUM";
+            this.gridColumn9.FieldName = "idUM";
+            this.gridColumn9.Name = "gridColumn9";
             // 
             // frmRequerimiento
             // 
@@ -470,6 +508,7 @@
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rilueProducto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -512,5 +551,8 @@
         private DevExpress.XtraEditors.TextEdit teSolicitante;
         private DevExpress.XtraEditors.ComboBoxEdit cbeStock;
         private DevExpress.XtraEditors.SimpleButton sbAddItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilueProducto;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }
