@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AvalonDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="nombreCorto" Type="varchar" MaxLength="15" />
+        </EntityType>
         <EntityType Name="banco">
           <Key>
             <PropertyRef Name="id" />
@@ -443,6 +451,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AvalonDBModelStoreContainer">
+          <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="banco" EntityType="Self.banco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="centroCostos" EntityType="Self.centroCostos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="clase" EntityType="Self.clase" Schema="dbo" store:Type="Tables" />
@@ -664,6 +673,7 @@
             <End Role="requerimiento" EntitySet="requerimiento" />
             <End Role="requerimientoDetalle" EntitySet="requerimientoDetalle" />
           </AssociationSet>
+          <EntitySet Name="area" EntityType="AvalonDBModel.area" />
           </EntityContainer>
         <EntityType Name="usuario">
           <Key>
@@ -1063,6 +1073,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCorto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1358,6 +1376,15 @@
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
                 <ScalarProperty Name="linea" ColumnName="linea" />
                 <ScalarProperty Name="idRQ" ColumnName="idRQ" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="area">
+            <EntityTypeMapping TypeName="AvalonDBModel.area">
+              <MappingFragment StoreEntitySet="area">
+                <ScalarProperty Name="nombreCorto" ColumnName="nombreCorto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

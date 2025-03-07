@@ -146,7 +146,8 @@ namespace Avalon.Aplicacion
             {
                 case "Configuracion": InvocaFormularioProduccion(codigo); break;
                 case "Maestros": InvocaFormularioProduccion(codigo); break;
-               
+                case "Inventario": InvocaFormularioProduccion(codigo); break;
+
                 default: break;
             }
         }
@@ -168,6 +169,7 @@ namespace Avalon.Aplicacion
                     case "15": formulario = null; break;
                     case "16": formulario = null; break;
                     case "17": formulario = new Maestros.frmCentroCosto(); break;
+                    case "22": formulario = new Compra.frmRequerimiento(); break;
 
                     default: break;
                 }

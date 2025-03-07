@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRequerimiento));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.lookUpEdit7 = new DevExpress.XtraEditors.LookUpEdit();
+            this.teSolicitante = new DevExpress.XtraEditors.TextEdit();
+            this.cbeStock = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.luePrioridad = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -48,7 +49,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lueArea = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.lueSolicitante = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.meComentario = new DevExpress.XtraEditors.MemoEdit();
@@ -64,9 +64,11 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sbAddItem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teSolicitante.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeStock.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrioridad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties)).BeginInit();
@@ -76,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueArea.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueSolicitante.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.meComentario.Properties)).BeginInit();
@@ -88,7 +89,9 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.lookUpEdit7);
+            this.panelControl1.Controls.Add(this.sbAddItem);
+            this.panelControl1.Controls.Add(this.teSolicitante);
+            this.panelControl1.Controls.Add(this.cbeStock);
             this.panelControl1.Controls.Add(this.labelControl10);
             this.panelControl1.Controls.Add(this.luePrioridad);
             this.panelControl1.Controls.Add(this.labelControl9);
@@ -106,22 +109,33 @@
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.lueArea);
             this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.lueSolicitante);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(666, 117);
+            this.panelControl1.Size = new System.Drawing.Size(666, 140);
             this.panelControl1.TabIndex = 0;
             // 
-            // lookUpEdit7
+            // teSolicitante
             // 
-            this.lookUpEdit7.Location = new System.Drawing.Point(66, 87);
-            this.lookUpEdit7.Name = "lookUpEdit7";
-            this.lookUpEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.teSolicitante.Location = new System.Drawing.Point(66, 35);
+            this.teSolicitante.Name = "teSolicitante";
+            this.teSolicitante.Size = new System.Drawing.Size(100, 20);
+            this.teSolicitante.TabIndex = 20;
+            // 
+            // cbeStock
+            // 
+            this.cbeStock.EditValue = "Si";
+            this.cbeStock.Location = new System.Drawing.Point(66, 87);
+            this.cbeStock.Name = "cbeStock";
+            this.cbeStock.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit7.Size = new System.Drawing.Size(100, 20);
-            this.lookUpEdit7.TabIndex = 19;
+            this.cbeStock.Properties.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbeStock.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbeStock.Size = new System.Drawing.Size(100, 20);
+            this.cbeStock.TabIndex = 19;
             // 
             // labelControl10
             // 
@@ -212,6 +226,8 @@
             this.lueSSCC.Name = "lueSSCC";
             this.lueSSCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueSSCC.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueSSCC.Size = new System.Drawing.Size(100, 20);
             this.lueSSCC.TabIndex = 9;
             // 
@@ -229,8 +245,11 @@
             this.lueSCC.Name = "lueSCC";
             this.lueSCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueSCC.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueSCC.Size = new System.Drawing.Size(100, 20);
             this.lueSCC.TabIndex = 7;
+            this.lueSCC.EditValueChanged += new System.EventHandler(this.lueSCC_EditValueChanged);
             // 
             // labelControl4
             // 
@@ -246,8 +265,11 @@
             this.lueCC.Name = "lueCC";
             this.lueCC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueCC.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueCC.Size = new System.Drawing.Size(100, 20);
             this.lueCC.TabIndex = 5;
+            this.lueCC.EditValueChanged += new System.EventHandler(this.lueCC_EditValueChanged);
             // 
             // labelControl3
             // 
@@ -263,6 +285,8 @@
             this.lueArea.Name = "lueArea";
             this.lueArea.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueArea.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nombre", "Nombre")});
             this.lueArea.Size = new System.Drawing.Size(100, 20);
             this.lueArea.TabIndex = 3;
             // 
@@ -273,15 +297,6 @@
             this.labelControl2.Size = new System.Drawing.Size(23, 13);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Area";
-            // 
-            // lueSolicitante
-            // 
-            this.lueSolicitante.Location = new System.Drawing.Point(66, 35);
-            this.lueSolicitante.Name = "lueSolicitante";
-            this.lueSolicitante.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueSolicitante.Size = new System.Drawing.Size(100, 20);
-            this.lueSolicitante.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -332,9 +347,9 @@
             // 
             this.panelControl3.Controls.Add(this.gcData);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(0, 117);
+            this.panelControl3.Location = new System.Drawing.Point(0, 140);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(666, 251);
+            this.panelControl3.Size = new System.Drawing.Size(666, 228);
             this.panelControl3.TabIndex = 2;
             // 
             // gcData
@@ -343,7 +358,7 @@
             this.gcData.Location = new System.Drawing.Point(2, 2);
             this.gcData.MainView = this.gvData;
             this.gcData.Name = "gcData";
-            this.gcData.Size = new System.Drawing.Size(662, 247);
+            this.gcData.Size = new System.Drawing.Size(662, 224);
             this.gcData.TabIndex = 0;
             this.gcData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvData});
@@ -411,6 +426,16 @@
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
             // 
+            // sbAddItem
+            // 
+            this.sbAddItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbAddItem.Location = new System.Drawing.Point(11, 112);
+            this.sbAddItem.Name = "sbAddItem";
+            this.sbAddItem.Size = new System.Drawing.Size(102, 23);
+            this.sbAddItem.TabIndex = 21;
+            this.sbAddItem.Text = "Agregar Item";
+            this.sbAddItem.Click += new System.EventHandler(this.sbAddItem_Click);
+            // 
             // frmRequerimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,10 +447,12 @@
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmRequerimiento.IconOptions.Image")));
             this.Name = "frmRequerimiento";
             this.Text = "Requerimiento";
+            this.Load += new System.EventHandler(this.frmRequerimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teSolicitante.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeStock.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePrioridad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties.CalendarTimeProperties)).EndInit();
@@ -435,7 +462,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueSCC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueArea.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueSolicitante.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -455,7 +481,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.GridControl gcData;
         private DevExpress.XtraGrid.Views.Grid.GridView gvData;
-        private DevExpress.XtraEditors.LookUpEdit lueSolicitante;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LookUpEdit lueArea;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -473,7 +498,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LookUpEdit luePrioridad;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit7;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.SimpleButton sbGuardar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -485,5 +509,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.MemoEdit meComentario;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.TextEdit teSolicitante;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeStock;
+        private DevExpress.XtraEditors.SimpleButton sbAddItem;
     }
 }

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compra\requerimientoCtr.cs" />
     <Compile Include="Interfaz\ICRUDctr.cs" />
     <Compile Include="Maestro\centroCostosCtr.cs" />
     <Compile Include="Maestro\claseCtr.cs" />

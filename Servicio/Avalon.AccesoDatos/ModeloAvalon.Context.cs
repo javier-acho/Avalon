@@ -50,5 +50,6 @@ namespace Avalon.AccesoDatos
         public virtual DbSet<unidadMedida> unidadMedida { get; set; }
         public virtual DbSet<requerimiento> requerimiento { get; set; }
         public virtual DbSet<requerimientoDetalle> requerimientoDetalle { get; set; }
+        public virtual DbSet<area> area { get; set; }
     }
 }

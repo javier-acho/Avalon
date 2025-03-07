@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="AvalonDBModel.requerimiento" Width="1.5" PointX="11.375" PointY="12" />
         <EntityTypeShape EntityType="AvalonDBModel.requerimientoDetalle" Width="1.5" PointX="13.625" PointY="12.125" />
         <AssociationConnector Association="AvalonDBModel.FK_requerimientoDetalle_requerimiento" />
+        <EntityTypeShape EntityType="AvalonDBModel.area" Width="1.5" PointX="12.375" PointY="8.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

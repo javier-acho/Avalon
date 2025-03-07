@@ -168,6 +168,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="AutomapperConfig\AutoMapperProfile.cs" />
+    <Compile Include="Controllers\Compra\requerimientoController.cs" />
     <Compile Include="Controllers\Maestro\centroCostoController.cs" />
     <Compile Include="Controllers\Maestro\claseController.cs" />
     <Compile Include="Controllers\Maestro\controllerCRUD.cs" />
